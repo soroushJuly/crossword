@@ -77,6 +77,7 @@ export default {
 }
 .form-row {
   display: flex;
+  flex-wrap: wrap;
   margin: 1rem;
   input {
     margin: 0 0.5rem;

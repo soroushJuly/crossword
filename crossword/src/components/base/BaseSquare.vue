@@ -6,6 +6,7 @@
       type="text"
       name="cell"
       class="block__input"
+      autocomplete="off"
       @keydown="wordEntered"
       @keyup="wordEnteredUp"
     />
@@ -59,8 +60,9 @@ export default {
   }
   &__input {
     text-align: center;
-    max-width: 35px;
+    max-width: 45px;
     max-height: 35px;
+    font-size: 1.2rem;
     border: none;
     &:focus {
       outline: none;
