@@ -1,25 +1,29 @@
 <template>
   <div>
-    <BaseTableRow
-      v-for="(row, index) in rows"
-      :key="index"
-      :cells="row.cells"
-    />
+    <div v-for="i in 10" :key="i" class="cross-row">
+      <BaseSquare v-for="(cell, index) in 10" :key="index" :content="cell" />
+    </div>
   </div>
 </template>
 
 <script>
-import BaseTableRow from "@/components/base/BaseTableRow.vue";
+import BaseSquare from "@/components/base/BaseSquare";
 
 export default {
   components: {
-    BaseTableRow,
+    BaseSquare,
   },
   props: {
-    rows: {
+    details: {
       type: Array,
       default: () => [],
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.cross-row {
+  display: flex;
+}
+</style>
