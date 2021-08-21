@@ -7,10 +7,14 @@
       @submit.prevent="sendForm"
     >
       <div v-for="i in 10" :key="i" class="form-row">
-        <label for="">Clue:</label>
-        <input type="text" @input="clueChanged(i, $event.target.value)" />
-        <label for="">Answer:</label>
-        <input type="text" @input="answerChanged(i, $event.target.value)" />
+        <div>
+          <label for="">Clue:</label>
+          <input type="text" @input="clueChanged(i, $event.target.value)" />
+        </div>
+        <div>
+          <label for="">Answer:</label>
+          <input type="text" @input="answerChanged(i, $event.target.value)" />
+        </div>
       </div>
       <button type="submit" class="btn">submit</button>
     </form>

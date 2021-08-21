@@ -60,8 +60,8 @@ export default {
   }
   &__input {
     text-align: center;
-    max-width: 45px;
-    max-height: 35px;
+    width: 100%;
+    height: 96%;
     font-size: 1.2rem;
     border: none;
     &:focus {
