@@ -1,6 +1,11 @@
 <template>
   <div class="cross-row">
-    <BaseSquare v-for="(cell, index) in cells" :key="index" :content="cell" />
+    <BaseSquare
+      v-for="(cell, index) in cells"
+      :key="index"
+      :content="cell"
+      :id="`${cell.x},${cell.y}`"
+    />
   </div>
 </template>
 
@@ -24,5 +29,6 @@ export default {
 <style lang="scss" scoped>
 .cross-row {
   display: flex;
+  margin: auto;
 }
 </style>

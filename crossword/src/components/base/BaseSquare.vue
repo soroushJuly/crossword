@@ -1,16 +1,46 @@
 <template>
   <div v-if="content && !content.block" class="block">
-    <input type="text" name="cell" id="3" class="block__input" />
+    <input
+      v-model="value"
+      :id="content._id"
+      type="text"
+      name="cell"
+      class="block__input"
+      autocomplete="off"
+      @keydown="wordEntered"
+      @keyup="wordEnteredUp"
+    />
   </div>
   <div class="block block--filled" v-else></div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   props: {
     content: {
       type: Object,
       default: () => {},
+    },
+  },
+  data() {
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    ...mapMutations(["updateAnswers"]),
+    wordEntered() {
+      if (!this.value) {
+        return;
+      }
+
+      this.value = "";
+    },
+    wordEnteredUp(e) {
+      this.updateAnswers({ content: e.key, id: this.content._id });
+      this.$emit("keyEntered");
     },
   },
 };
@@ -22,16 +52,17 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   border: 1px solid #222;
   &--filled {
     background: #222;
   }
   &__input {
     text-align: center;
-    max-width: 35px;
-    max-height: 35px;
+    width: 100%;
+    height: 96%;
+    font-size: 1.2rem;
     border: none;
     &:focus {
       outline: none;
